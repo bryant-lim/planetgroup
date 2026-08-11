@@ -492,6 +492,36 @@ section {
   border-color: var(--accent-color);
 }
 
+.phone-input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.phone-input-group:focus-within {
+  border-color: var(--accent-color);
+}
+
+.phone-prefix {
+  padding: 1rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+.phone-input-group input {
+  border: none;
+  background: transparent;
+  padding-left: 1rem;
+}
+
+.phone-input-group input:focus {
+  border-color: transparent;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .about-grid {

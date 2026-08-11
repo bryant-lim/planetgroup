@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     chatSimForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('chatName').value;
-      const phone = document.getElementById('chatPhone').value;
+      const rawPhone = document.getElementById('chatPhone').value;
+      const phone = '+60' + rawPhone.replace(/^0+/, ''); // Prepend +60 and remove any leading zero
 
       if (window.NXLiveChat) {
         // Set user info to NXLiveChat
