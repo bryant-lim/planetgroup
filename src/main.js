@@ -38,4 +38,54 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.style.background = 'rgba(5, 5, 5, 0.7)';
     }
   });
+
+  // Modal and Live Chat Simulation Logic
+  const openChatModalBtn = document.getElementById('openChatModalBtn');
+  const closeChatModalBtn = document.getElementById('closeModalBtn');
+  const chatModal = document.getElementById('chatModal');
+  const chatSimForm = document.getElementById('chatSimForm');
+
+  if (openChatModalBtn && chatModal) {
+    openChatModalBtn.addEventListener('click', () => {
+      chatModal.classList.add('active');
+    });
+
+    closeChatModalBtn.addEventListener('click', () => {
+      chatModal.classList.remove('active');
+    });
+
+    // Close on overlay click
+    chatModal.addEventListener('click', (e) => {
+      if (e.target === chatModal) {
+        chatModal.classList.remove('active');
+      }
+    });
+
+    // Handle form submission
+    chatSimForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('chatName').value;
+      const phone = document.getElementById('chatPhone').value;
+
+      if (window.NXLiveChat) {
+        // Set user info to NXLiveChat
+        window.NXLiveChat.setUserInfo({
+          name: name,
+          phone: phone,
+          customer_id: 'user_' + Math.floor(Math.random() * 1000000) // Dummy ID
+        });
+        
+        // Open the chat widget
+        window.NXLiveChat.showChatBtn();
+        // There is no documented openChat() method in NXLink docs, so we just show the button and they can click it.
+        // Wait 300ms and close the modal
+        setTimeout(() => {
+          chatModal.classList.remove('active');
+          chatSimForm.reset();
+        }, 300);
+      } else {
+        alert("Live chat is still loading. Please try again in a moment.");
+      }
+    });
+  }
 });

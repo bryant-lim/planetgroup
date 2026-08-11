@@ -30,7 +30,10 @@
         <div class="hero-content reveal">
           <h1 class="hero-title">Bridging Local &<br>Global Fashion Culture</h1>
           <p class="hero-subtitle">Curating the finest in streetwear and sneaker culture since 1995.</p>
-          <a href="#brands" class="btn-primary">Explore Our Brands</a>
+          <div class="hero-actions">
+            <a href="#brands" class="btn-primary">Explore Our Brands</a>
+            <button id="openChatModalBtn" class="btn-secondary">Talk to an Agent</button>
+          </div>
         </div>
       </section>
 
@@ -144,6 +147,26 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+
+    <!-- Chat Modal Simulation -->
+    <div id="chatModal" class="modal-overlay">
+      <div class="modal-content glass-card">
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+        <h3>Start Live Chat</h3>
+        <p>Please enter your details to connect with our style consultants.</p>
+        <form id="chatSimForm">
+          <div class="form-group">
+            <label for="chatName">Name (Required)</label>
+            <input type="text" id="chatName" required placeholder="e.g. Tom Lee">
+          </div>
+          <div class="form-group">
+            <label for="chatPhone">Phone Number (Required)</label>
+            <input type="tel" id="chatPhone" required placeholder="e.g. 12345678901">
+          </div>
+          <button type="submit" class="btn-primary w-100">Connect to Agent</button>
+        </form>
+      </div>
+    </div>
 
     <!-- Live Chat Embed -->
     <script>
