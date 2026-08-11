@@ -144,5 +144,13 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+
+    <!-- Live Chat Embed -->
+    <script>
+      const script = document.createElement('script');
+      script.id = 'live-chat-script';
+      script.src = 'https://app.nxlink.ai/chatbot/client/js/live_chat.min.js?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOiIzMTIwIiwiYXVkIjoiVmlzaXRvciBDbGllbnQiLCJjb25maWdfaWQiOiIxMjIiLCJuYW1lIjoiTGl2ZSBDaGF0IiwiaXNzIjoibnhhaS5jb20iLCJleHAiOjQ4NjIyOTQ5NTAsImlhdCI6MTc4NjQ1NDk1MH0.LjG8sJXf2PHh9Ho8YrsQlC5Ij3TQ3dDi_FQP2hx-cFY&vtime=' + new Date().getTime();
+      document.head.appendChild(script);
+    </script>
   </body>
 </html>
